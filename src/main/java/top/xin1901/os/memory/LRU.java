@@ -9,18 +9,18 @@ import java.util.stream.Collectors;
 public class LRU extends MemoryManage {
 
     /**
-     * 存放页表的状态栈
+     * LRU 类栈
      */
     Deque<Integer> stack;
 
     public LRU() {
-        stack = status;
+        stack = table;
     }
 
     @Override
     public Optional<List<Integer>> getNext() {
         if (list.size() == n) return Optional.empty();
-        int next = list.get(n++) / size;
+        int next = list.get(n++) / pageSize;
 
         Deque<Integer> backup = new ArrayDeque<>();
 
@@ -32,17 +32,11 @@ public class LRU extends MemoryManage {
         if (stack.isEmpty()) clash += 1;
         else stack.pop();
 
-        if (backup.size() == len) backup.pop();
+        if (backup.size() == TableLen) backup.pop();
         while (!backup.isEmpty()) stack.push(backup.pop());
         stack.push(next);
 
-        return Optional.ofNullable(stackToList());
+        return Optional.ofNullable(tableToList());
     }
 
-    /**
-     * 将地址栈转换为页表
-     */
-    public List<Integer> stackToList() {
-        return new ArrayList<>(stack);
-    }
 }

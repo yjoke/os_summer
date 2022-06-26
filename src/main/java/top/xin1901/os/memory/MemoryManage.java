@@ -10,12 +10,12 @@ public abstract class MemoryManage {
     /**
      * 页大小
      */
-    protected int size;
+    protected int pageSize;
 
     /**
-     * 页表长度
+     * 页表大小
      */
-    protected int len;
+    protected int TableLen;
 
     /**
      * 指令地址流
@@ -35,14 +35,14 @@ public abstract class MemoryManage {
     /**
      * 存放页表的状态栈
      */
-    Deque<Integer> status;
+    Deque<Integer> table;
 
     protected MemoryManage() {
         list = new ArrayList<>();
-        status = new ArrayDeque<>();
+        table = new ArrayDeque<>();
 
-        size = 1024;
-        len = 3;
+        pageSize = 1024;
+        TableLen = 3;
         n = 0;
         clash = 0;
     }
@@ -51,7 +51,7 @@ public abstract class MemoryManage {
      * 迭代器, 获取下一个页面状态
      * @return 获取下一个页面状态
      */
-    protected abstract Optional<List<Integer>> getNext();
+    public abstract Optional<List<Integer>> getNext();
 
     /**
      * 输入一个页面流
@@ -60,6 +60,12 @@ public abstract class MemoryManage {
         this.list = list;
     }
 
+    /**
+     * 将状态栈转换为页表
+     */
+    public List<Integer> tableToList() {
+        return new ArrayList<>(table);
+    }
 
     /**
      * 获取一个随机的指令地址, 地址范围 左闭右开
