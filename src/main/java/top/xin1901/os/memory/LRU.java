@@ -11,7 +11,7 @@ public class LRU extends MemoryManage {
     /**
      * LRU 类栈
      */
-    Deque<Integer> stack;
+    private final Deque<Integer> stack;
 
     public LRU() {
         stack = table;

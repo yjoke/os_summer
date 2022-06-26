@@ -10,7 +10,7 @@ public class FIFO extends MemoryManage {
     /**
      * FIFO 类队列
      */
-    Deque<Integer> queue;
+    private final Deque<Integer> queue;
 
     public FIFO() {
         queue = table;

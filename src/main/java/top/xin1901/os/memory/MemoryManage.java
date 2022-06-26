@@ -35,7 +35,7 @@ public abstract class MemoryManage {
     /**
      * 存放页表的状态栈
      */
-    Deque<Integer> table;
+    protected Deque<Integer> table;
 
     protected MemoryManage() {
         list = new ArrayList<>();
