@@ -10,14 +10,21 @@ public class Consumer {
      * @param storage
      * @throws InterruptedException
      */
-    public static void consumption(Storage storage) throws InterruptedException {
+    public static void consumption(Storage storage, long time) {
 
-        while (storage.isEmpty()) Thread.sleep(1000);
-        while (storage.take()) Thread.sleep(1000);
+        try {
+            while (storage.isEmpty());
+            while (storage.take());
 
-        Product remove = storage.getProducts().remove(0);
-        System.out.println("使用产品: " + remove);
+            Product remove = storage.getProducts().remove(0);
+            System.out.println("使用产品: " + remove + "; 容器当前容量: " + storage.getProducts().size());
 
-        storage.free();
+            storage.free();
+
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
 }

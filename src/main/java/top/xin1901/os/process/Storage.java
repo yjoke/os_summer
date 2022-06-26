@@ -49,7 +49,8 @@ public class Storage {
      * 占用该容器
      * @return 是否占用成功
      */
-    public synchronized boolean take() {
+    public synchronized boolean take() throws InterruptedException {
+        Thread.sleep(1000);
         if (mutex) return true;
         mutex = true;
         return false;
@@ -66,7 +67,8 @@ public class Storage {
      * 判断容器是否满
      * @return 是否满
      */
-    public boolean isFull() {
+    public boolean isFull() throws InterruptedException {
+        Thread.sleep(1000);
         return products.size() == capacity;
     }
 
@@ -74,7 +76,8 @@ public class Storage {
      * 判断容器是否为空
      * @return 是否为空
      */
-    public boolean isEmpty() {
+    public boolean isEmpty() throws InterruptedException {
+        Thread.sleep(1000);
         return products.isEmpty();
     }
 }

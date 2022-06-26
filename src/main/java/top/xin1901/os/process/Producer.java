@@ -11,14 +11,21 @@ public class Producer {
      * @param storage
      * @throws InterruptedException
      */
-    public static void production(Product product, Storage storage) throws InterruptedException {
+    public static void production(Product product, Storage storage, long time) {
 
-        while (storage.isFull()) Thread.sleep(1000);
-        while (storage.take()) Thread.sleep(1000);
+        try {
+            while (storage.isFull());
+            while (storage.take());
 
-        storage.getProducts().add(product);
-        System.out.println("生产产品: " + product);
+            storage.getProducts().add(product);
+            System.out.println("生产产品: " + product + "; 容器当前容量: " + storage.getProducts().size());
 
-        storage.free();
+            storage.free();
+
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
     }
 }
