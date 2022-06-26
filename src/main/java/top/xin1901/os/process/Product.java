@@ -14,6 +14,5 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-    int code;
-    String name;
+    int id;
 }
