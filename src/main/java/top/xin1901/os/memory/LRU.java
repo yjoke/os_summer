@@ -14,14 +14,7 @@ public class LRU extends MemoryManage {
     Deque<Integer> stack;
 
     public LRU() {
-        list = new ArrayList<>();
-        stack = new ArrayDeque<>();
-
-        size = 1024;
-        len = 3;
-        n = 0;
-        clash = 0;
-
+        stack = status;
     }
 
     @Override

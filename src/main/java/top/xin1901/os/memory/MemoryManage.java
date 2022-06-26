@@ -1,8 +1,6 @@
 package top.xin1901.os.memory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * @author HeYunjia
@@ -33,6 +31,21 @@ public abstract class MemoryManage {
      * 冲突次数
      */
     protected int clash;
+
+    /**
+     * 存放页表的状态栈
+     */
+    Deque<Integer> status;
+
+    protected MemoryManage() {
+        list = new ArrayList<>();
+        status = new ArrayDeque<>();
+
+        size = 1024;
+        len = 3;
+        n = 0;
+        clash = 0;
+    }
 
     /**
      * 迭代器, 获取下一个页面状态
