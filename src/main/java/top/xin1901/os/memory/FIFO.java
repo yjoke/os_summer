@@ -16,6 +16,11 @@ public class FIFO extends MemoryManage {
         queue = table;
     }
 
+    public FIFO(List<Integer> list) {
+        this();
+        this.list = list;
+    }
+
     @Override
     public Optional<List<Integer>> getNext() {
         if (list.size() == n) return Optional.empty();

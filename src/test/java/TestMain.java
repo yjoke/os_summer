@@ -1,3 +1,4 @@
+import com.sun.javaws.IconUtil;
 import org.junit.Test;
 import top.xin1901.os.memory.FIFO;
 import top.xin1901.os.memory.LRU;
@@ -52,6 +53,7 @@ public class TestMain {
         for (int i = 0; i < 50; i++) {
             mm.getNext().ifPresent(System.out::println);
         }
+        System.out.println(mm.getClash());
     }
 
     @Test

@@ -38,7 +38,6 @@ public abstract class MemoryManage {
     protected Deque<Integer> table;
 
     protected MemoryManage() {
-        list = new ArrayList<>();
         table = new ArrayDeque<>();
 
         pageSize = 1024;
@@ -88,4 +87,49 @@ public abstract class MemoryManage {
         return list;
     }
 
+    /**
+     * clash 的 getter 方法
+     * @return 返回 clash 的值
+     */
+    public int getClash() {
+        return clash;
+    }
+
+    /**
+     * 获取全部的序列, 返回二位数组
+     * @return 每一次的序列集合
+     */
+    public Optional<List<List<Integer>>> getAll() {
+        if (list.size() == 0) return Optional.empty();
+
+        int backup = n;
+        n = 0;
+
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            res.add(getNext().orElse(new ArrayList<>()));
+        }
+
+        n = backup;
+
+        return Optional.of(res);
+    }
+
+    /**
+     * 按照页表样式打印输出, 附带打印冲突次数
+     */
+    public void printAll() {
+        List<List<Integer>> lists = getAll().orElse(new ArrayList<>());
+
+        System.out.println("页面更迭为: ");
+        for (int i = 0; i < lists.get(lists.size() - 1).size(); i++) {
+            for (List<Integer> list : lists) {
+                if (i >= list.size()) System.out.print("  ");
+                else System.out.print(list.get(i) + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("页面冲突次数为: " + clash);
+    }
 }

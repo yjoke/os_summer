@@ -17,6 +17,11 @@ public class LRU extends MemoryManage {
         stack = table;
     }
 
+    public LRU(List<Integer> list) {
+        this();
+        this.list = list;
+    }
+
     @Override
     public Optional<List<Integer>> getNext() {
         if (list.size() == n) return Optional.empty();
