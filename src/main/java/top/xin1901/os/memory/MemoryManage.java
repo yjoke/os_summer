@@ -102,15 +102,10 @@ public abstract class MemoryManage {
     public Optional<List<List<Integer>>> getAll() {
         if (list.size() == 0) return Optional.empty();
 
-        int backup = n;
-        n = 0;
-
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             res.add(getNext().orElse(new ArrayList<>()));
         }
-
-        n = backup;
 
         return Optional.of(res);
     }
