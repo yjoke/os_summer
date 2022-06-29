@@ -1,17 +1,31 @@
 import org.junit.Test;
 import top.xin1901.os.file.FCFS;
 import top.xin1901.os.file.FileManage;
+import top.xin1901.os.file.SCAN;
 import top.xin1901.os.file.SSTF;
 import top.xin1901.os.util.FileUtil;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author HeYunjia
  */
 public class TestFM {
+
+    @Test
+    public void testSCAN() {
+        testFM(new SCAN(false));
+    }
+
+    @Test
+    public void testSSTF() {
+        testFM(new SSTF());
+    }
+
+    @Test
+    public void testFCFS() {
+        testFM(new FCFS());
+    }
 
     public void testFM(FileManage fm) {
         int min = 0;
@@ -26,6 +40,9 @@ public class TestFM {
         fm.setNow(now);
         fm.setList(randomList);
 
+        Collections.sort(randomList);
+        System.out.println("排序后的顺序为: " + randomList);
+
         List<Integer> res = new LinkedList<>();
         while (fm.hasNext()) {
             res.add(fm.next());
@@ -35,15 +52,5 @@ public class TestFM {
         System.out.println(method[method.length - 1] + " 访问顺序为: " + res);
         System.out.println(method[method.length - 1] + " 移动总长度: " + fm.getSum());
         System.out.println(method[method.length - 1] + " 平均移动次数: " + fm.getAvg());
-    }
-
-    @Test
-    public void testFCFS() {
-        testFM(new FCFS());
-    }
-
-    @Test
-    public void testSSTF() {
-        testFM(new SSTF());
     }
 }

@@ -39,4 +39,18 @@ public class TestUse {
             System.out.println(queue.pop());
         }
     }
+
+    @Test
+    public void test3() {
+        Deque<Integer> d = new ArrayDeque<>();
+
+        d.add(1);
+        d.add(2);
+        System.out.println(d);
+        d.offer(3);
+        d.push(4);
+        System.out.println(d);
+
+
+    }
 }

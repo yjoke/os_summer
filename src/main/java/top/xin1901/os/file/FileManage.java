@@ -61,7 +61,6 @@ public abstract class FileManage implements Iterator<Integer> {
         this.list = list;
         this.n = 0;
         this.sum = 0;
-        InitQueue();
     }
 
     /**
@@ -72,5 +71,18 @@ public abstract class FileManage implements Iterator<Integer> {
     @Override
     public boolean hasNext() {
         return n < list.size();
+    }
+
+    @Override
+    public Integer next() {
+        if (deque.isEmpty()) return null;
+
+        Integer next = deque.poll();
+
+        n += 1;
+        sum += Math.abs(now - next);
+        now = next;
+
+        return now;
     }
 }

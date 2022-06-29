@@ -24,16 +24,4 @@ public class FCFS extends FileManage {
         }
     }
 
-    @Override
-    public Integer next() {
-        if (deque.isEmpty()) return null;
-
-        Integer next = deque.poll();
-
-        n += 1;
-        sum += Math.abs(now - next);
-        now = next;
-
-        return now;
-    }
 }
