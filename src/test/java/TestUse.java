@@ -50,7 +50,14 @@ public class TestUse {
         d.offer(3);
         d.push(4);
         System.out.println(d);
+    }
 
-
+    @Test
+    public void test4() {
+        int len = 10;
+        List<Integer> list = new ArrayList<Integer>(){{
+            for (int i = 0; i < len; i++) add(0);
+        }};
+        System.out.println(list);
     }
 }
