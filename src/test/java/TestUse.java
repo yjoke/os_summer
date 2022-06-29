@@ -60,4 +60,24 @@ public class TestUse {
         }};
         System.out.println(list);
     }
+
+    @Test
+    public void test5() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "123");
+        map.put(2, "2");
+        System.out.println(map);
+
+//        map.remove(1);
+//        System.out.println(map);
+
+        map.put(3, "3");
+
+        for (Integer id : map.keySet()) {
+            if (id == 3) continue;
+            map.remove(id);
+            break;
+        }
+        System.out.println(map);
+    }
 }

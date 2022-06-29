@@ -29,6 +29,12 @@ public class Process {
      */
     private Vector need;
 
+    public Process(int id, Vector max) {
+        this.id = id;
+        this.max = max;
+        this.need = max;
+    }
+
     /**
      * 向 bank 银行发起大小为 request 的资源请求
      * @param request 资源向量

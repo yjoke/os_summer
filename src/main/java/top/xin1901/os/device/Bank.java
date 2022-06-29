@@ -1,13 +1,16 @@
 package top.xin1901.os.device;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import lombok.ToString;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author HeYunjia
  */
+@ToString
 public class Bank {
 
     /**
@@ -84,25 +87,25 @@ public class Bank {
      */
     private boolean isSafe() {
         Vector work = available;
-        Map<Integer, Boolean> finish = new HashMap<>();
-        for (Integer id : max.keySet()) {
-            finish.put(id, false);
-        }
+        Set<Integer> finish = new HashSet<>(max.keySet());
 
         while (true) {
-            boolean flag = false;
-            for (Integer id : finish.keySet()) {
+            boolean flag = true;
+            for (Integer id : finish) {
                 Vector need = max.get(id).sub(allocation.get(id));
-                if (need.compareTo(work)) continue;
-                flag = true;
+
+                if (!work.compareTo(need)) continue;
+                else flag = false;
+
                 work = work.add(allocation.get(id));
                 finish.remove(id);
                 break;
             }
+
             if (flag) break;
         }
 
-        return true;
+        return finish.size() == 0;
     }
 
 }
