@@ -22,7 +22,6 @@ public class SSTF extends FileManage {
 
     @Override
     protected void InitQueue() {
-        deque = new ArrayDeque<>();
         stack = new ArrayDeque<>();
 
         Collections.sort(list);

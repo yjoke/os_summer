@@ -18,7 +18,6 @@ public class FCFS extends FileManage {
 
     @Override
     protected void InitQueue() {
-        deque = new ArrayDeque<>();
         for (Integer i : list) {
             deque.offer(i);
         }

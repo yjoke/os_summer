@@ -29,8 +29,6 @@ public class SCAN extends FileManage {
 
     @Override
     protected void InitQueue() {
-        deque = new ArrayDeque<>();
-
         Collections.sort(list);
 
         int index = Collections.binarySearch(list, now);

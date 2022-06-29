@@ -1,8 +1,5 @@
 import org.junit.Test;
-import top.xin1901.os.file.FCFS;
-import top.xin1901.os.file.FileManage;
-import top.xin1901.os.file.SCAN;
-import top.xin1901.os.file.SSTF;
+import top.xin1901.os.file.*;
 import top.xin1901.os.util.FileUtil;
 
 import java.util.*;
@@ -11,6 +8,11 @@ import java.util.*;
  * @author HeYunjia
  */
 public class TestFM {
+
+    @Test
+    public void testCSCAN() {
+        testFM(new CSCAN());
+    }
 
     @Test
     public void testSCAN() {

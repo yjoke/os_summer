@@ -1,5 +1,6 @@
 package top.xin1901.os.file;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
@@ -40,7 +41,8 @@ public abstract class FileManage implements Iterator<Integer> {
 
     public void setList(List<Integer> list) {
         this.list = list;
-        if (deque == null) InitQueue();
+        deque = new ArrayDeque<>();
+        InitQueue();
     }
 
     public int getSum() {
@@ -58,7 +60,7 @@ public abstract class FileManage implements Iterator<Integer> {
 
     public FileManage(int now, List<Integer> list) {
         this.now = now;
-        this.list = list;
+        setList(list);
         this.n = 0;
         this.sum = 0;
     }
