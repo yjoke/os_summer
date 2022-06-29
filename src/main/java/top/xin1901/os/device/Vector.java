@@ -20,7 +20,7 @@ public class Vector {
      * 向量长度
      */
     public int length() {
-        return this.value.size();
+        return value.size();
     }
 
     /**

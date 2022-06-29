@@ -29,4 +29,14 @@ public class Process {
      */
     private Vector need;
 
+    /**
+     * 向 bank 银行发起大小为 request 的资源请求
+     * @param request 资源向量
+     * @return 请求是否成功
+     */
+    public boolean apply(Bank bank, Vector request) {
+        if (!need.compareTo(request)) return false;
+        return bank.allot(this, request);
+    }
+
 }
