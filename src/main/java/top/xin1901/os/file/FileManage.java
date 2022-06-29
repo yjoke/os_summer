@@ -1,6 +1,5 @@
 package top.xin1901.os.file;
 
-import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
@@ -44,6 +43,14 @@ public abstract class FileManage implements Iterator<Integer> {
         if (deque == null) InitQueue();
     }
 
+    public int getSum() {
+        return sum;
+    }
+
+    public double getAvg() {
+        return 1D * sum / n;
+    }
+
     public FileManage() {
         this.n = 0;
         this.sum = 0;
@@ -62,4 +69,8 @@ public abstract class FileManage implements Iterator<Integer> {
      */
     protected abstract void InitQueue();
 
+    @Override
+    public boolean hasNext() {
+        return n < list.size();
+    }
 }

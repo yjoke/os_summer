@@ -25,20 +25,15 @@ public class FCFS extends FileManage {
     }
 
     @Override
-    public boolean hasNext() {
-        return n < list.size();
-    }
-
-    @Override
     public Integer next() {
         if (deque.isEmpty()) return null;
 
-        Integer poll = deque.poll();
+        Integer next = deque.poll();
 
         n += 1;
-        sum += Math.abs(now - poll);
-        now = poll;
+        sum += Math.abs(now - next);
+        now = next;
 
-        return poll;
+        return now;
     }
 }
