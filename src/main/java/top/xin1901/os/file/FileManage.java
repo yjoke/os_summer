@@ -1,5 +1,6 @@
 package top.xin1901.os.file;
 
+import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,25 +19,26 @@ public abstract class FileManage implements Iterator<Integer> {
      */
     protected List<Integer> list;
 
+    /**
+     * 已经处理的数量
+     */
+    protected int n;
+
+    /**
+     * 磁道访问总长度
+     */
+    protected int sum;
+
+    /**
+     * 访问队列
+     */
+    protected Deque<Integer> deque;
+
     public FileManage(int now, List<Integer> list) {
-        setNow(now);
-        setList(list);
-    }
-
-    /**
-     * 设置 now
-     * @param now 当前位置
-     */
-    public void setNow(int now) {
         this.now = now;
-    }
-
-    /**
-     * 设置 List
-     * @param list 待处理的序列
-     */
-    public void setList(List<Integer> list) {
         this.list = list;
+        this.n = 0;
+        this.sum = 0;
     }
 
     /**
