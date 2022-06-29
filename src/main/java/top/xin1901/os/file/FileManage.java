@@ -1,5 +1,6 @@
 package top.xin1901.os.file;
 
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
@@ -34,20 +35,31 @@ public abstract class FileManage implements Iterator<Integer> {
      */
     protected Deque<Integer> deque;
 
+    public void setNow(int now) {
+        this.now = now;
+    }
+
+    public void setList(List<Integer> list) {
+        this.list = list;
+        if (deque == null) InitQueue();
+    }
+
+    public FileManage() {
+        this.n = 0;
+        this.sum = 0;
+    }
+
     public FileManage(int now, List<Integer> list) {
         this.now = now;
         this.list = list;
         this.n = 0;
         this.sum = 0;
+        InitQueue();
     }
 
     /**
-     * 获取下一个位置
-     * @return 下一个的位置
+     * 初始化队列
      */
-    public abstract Integer getNext();
+    protected abstract void InitQueue();
 
-    public static List<Integer> getList(int min, int max, int num) {
-        return null;
-    }
 }

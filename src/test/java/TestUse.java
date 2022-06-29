@@ -30,5 +30,11 @@ public class TestUse {
         System.out.println(Collections.binarySearch(list, 3));
         System.out.println(Collections.binarySearch(list, 5));
         System.out.println(Collections.binarySearch(list, 8));
+
+        Deque<Integer> queue = new ArrayDeque<>(list);
+
+        while (!queue.isEmpty()) {
+            System.out.println(queue.pop());
+        }
     }
 }

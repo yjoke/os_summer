@@ -1,7 +1,44 @@
 package top.xin1901.os.file;
 
+import java.util.ArrayDeque;
+import java.util.List;
+
 /**
  * @author HeYunjia
  */
-public class FCFS {
+public class FCFS extends FileManage {
+
+    public FCFS() {
+        super();
+    }
+
+    public FCFS(int now, List<Integer> list) {
+        super(now, list);
+    }
+
+    @Override
+    protected void InitQueue() {
+        deque = new ArrayDeque<>();
+        for (Integer i : list) {
+            deque.offer(i);
+        }
+    }
+
+    @Override
+    public boolean hasNext() {
+        return n < list.size();
+    }
+
+    @Override
+    public Integer next() {
+        if (deque.isEmpty()) return null;
+
+        Integer poll = deque.poll();
+
+        n += 1;
+        sum += Math.abs(now - poll);
+        now = poll;
+
+        return poll;
+    }
 }
