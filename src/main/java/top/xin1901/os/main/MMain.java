@@ -1,4 +1,8 @@
-package top.xin1901.os.memory;
+package top.xin1901.os.main;
+
+import top.xin1901.os.memory.FIFO;
+import top.xin1901.os.memory.LRU;
+import top.xin1901.os.memory.MemoryManage;
 
 import java.util.List;
 import java.util.stream.Collectors;

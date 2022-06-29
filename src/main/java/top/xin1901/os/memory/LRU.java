@@ -1,7 +1,9 @@
 package top.xin1901.os.memory;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @author HeYunjia
