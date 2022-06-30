@@ -1,7 +1,7 @@
 import org.junit.Test;
-import top.xin1901.os.memory.FIFO;
-import top.xin1901.os.memory.LRU;
-import top.xin1901.os.memory.MemoryManage;
+import top.xin1901.hyj.os.memory.FIFO;
+import top.xin1901.hyj.os.memory.LRU;
+import top.xin1901.hyj.os.memory.MemoryManage;
 
 import java.util.List;
 import java.util.stream.Collectors;

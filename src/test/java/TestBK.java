@@ -1,7 +1,7 @@
 import org.junit.Test;
-import top.xin1901.os.device.Bank;
-import top.xin1901.os.device.Process;
-import top.xin1901.os.device.Vector;
+import top.xin1901.hyj.os.device.Bank;
+import top.xin1901.hyj.os.device.Process;
+import top.xin1901.hyj.os.device.Vector;
 
 import java.util.ArrayList;
 import java.util.Arrays;

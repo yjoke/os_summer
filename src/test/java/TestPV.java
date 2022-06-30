@@ -1,15 +1,4 @@
-import com.sun.javaws.IconUtil;
 import org.junit.Test;
-import top.xin1901.os.memory.FIFO;
-import top.xin1901.os.memory.LRU;
-import top.xin1901.os.memory.MemoryManage;
-import top.xin1901.os.process.Consumer;
-import top.xin1901.os.process.Producer;
-import top.xin1901.os.process.Product;
-import top.xin1901.os.process.Storage;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author HeYunjia

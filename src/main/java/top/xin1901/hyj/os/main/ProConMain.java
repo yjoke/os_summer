@@ -1,9 +1,9 @@
-package top.xin1901.os.main;
+package top.xin1901.hyj.os.main;
 
-import top.xin1901.os.process.Consumer;
-import top.xin1901.os.process.Producer;
-import top.xin1901.os.process.Product;
-import top.xin1901.os.process.Storage;
+import top.xin1901.hyj.os.process.Consumer;
+import top.xin1901.hyj.os.process.Product;
+import top.xin1901.hyj.os.process.Producer;
+import top.xin1901.hyj.os.process.Storage;
 
 /**
  * @author HeYunjia

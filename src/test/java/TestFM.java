@@ -1,6 +1,6 @@
 import org.junit.Test;
-import top.xin1901.os.file.*;
-import top.xin1901.os.util.FileUtil;
+import top.xin1901.hyj.os.file.*;
+import top.xin1901.hyj.os.util.FileUtil;
 
 import java.util.*;
 

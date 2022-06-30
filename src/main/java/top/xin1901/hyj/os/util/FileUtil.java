@@ -1,6 +1,6 @@
-package top.xin1901.os.util;
+package top.xin1901.hyj.os.util;
 
-import top.xin1901.os.file.FileManage;
+import top.xin1901.hyj.os.file.FileManage;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

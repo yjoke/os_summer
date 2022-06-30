@@ -1,10 +1,10 @@
-package top.xin1901.os.main;
+package top.xin1901.hyj.os.main;
 
-import top.xin1901.os.file.CSCAN;
-import top.xin1901.os.file.FCFS;
-import top.xin1901.os.file.SCAN;
-import top.xin1901.os.file.SSTF;
-import top.xin1901.os.util.FileUtil;
+import top.xin1901.hyj.os.file.CSCAN;
+import top.xin1901.hyj.os.file.FCFS;
+import top.xin1901.hyj.os.file.SCAN;
+import top.xin1901.hyj.os.file.SSTF;
+import top.xin1901.hyj.os.util.FileUtil;
 
 import java.util.List;
 import java.util.stream.Collectors;

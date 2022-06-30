@@ -1,4 +1,4 @@
-package top.xin1901.os.device;
+package top.xin1901.hyj.os.device;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
