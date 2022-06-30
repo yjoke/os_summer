@@ -2,10 +2,7 @@ package top.xin1901.os.device;
 
 import lombok.ToString;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author HeYunjia
@@ -68,16 +65,70 @@ public class Bank {
         if (!available.compareTo(request)) return false;
 
         available = available.sub(request);
+        allocation.put(process.getId(), allocation.get(process.getId()).add(request));
 
         if (isSafe()) {
-            allocation.put(process.getId(), allocation.get(process.getId()).add(request));
             process.setNeed(process.getNeed().sub(request));
             return true;
         } else {
             available = available.add(request);
+            allocation.put(process.getId(), allocation.get(process.getId()).sub(request));
             return false;
         }
 
+    }
+
+    /**
+     * 一组进程请求一组资源
+     *
+     * @param processes 进程集合
+     * @param requests 请求资源向量
+     * @return 请求是否成功
+     */
+    public boolean allot(List<Process> processes, List<Vector> requests) {
+        if (processes.size() != requests.size()) return false;
+
+        for (int i = 0; i < processes.size(); i++) {
+            if (!processes.get(i).getNeed().compareTo(requests.get(i))) return false;
+        }
+
+        Vector backup = available;
+        for (int i = 0; i < processes.size(); i++) {
+            if (available.compareTo(requests.get(i))) {
+                available = available.sub(requests.get(i));
+                allocation.put(
+                    processes.get(i).getId(),
+                    allocation.get(processes.get(i).getId()).add(requests.get(i))
+                );
+            } else {
+                available = backup;
+                for (int j = i; j >= 0; j--) {
+                    allocation.put(
+                        processes.get(i).getId(),
+                        allocation.get(processes.get(i).getId()).sub(requests.get(i))
+                    );
+                }
+                return false;
+            }
+        }
+
+        if (!isSafe()) {
+            available = backup;
+            for (int j = processes.size() - 1; j >= 0; j--) {
+                allocation.put(
+                    processes.get(j).getId(),
+                    allocation.get(processes.get(j).getId()).sub(requests.get(j))
+                );
+            }
+            return false;
+        }
+
+        for (int i = 0; i < processes.size(); i++) {
+            processes.get(i)
+                .setNeed(processes.get(i).getNeed().sub(requests.get(i)));
+        }
+
+        return true;
     }
 
     /**
