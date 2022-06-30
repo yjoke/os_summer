@@ -59,6 +59,7 @@ public class TestUse {
             for (int i = 0; i < len; i++) add(0);
         }};
         System.out.println(list);
+        list.forEach(System.out::println);
     }
 
     @Test

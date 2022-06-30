@@ -1,15 +1,19 @@
 package top.xin1901.os.device;
 
-import lombok.ToString;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author HeYunjia
  */
-@ToString
+
 public class Vector {
+
+    @Override
+    public String toString() {
+        return Arrays.toString(value.toArray());
+    }
 
     /**
      * 向量内容

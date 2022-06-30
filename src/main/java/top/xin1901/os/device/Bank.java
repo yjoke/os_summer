@@ -159,4 +159,15 @@ public class Bank {
         return finish.size() == 0;
     }
 
+    public void print() {
+        System.out.println("available: " + available);
+
+        System.out.println("\tmax: \t\t\tallocation: \t\tneed:");
+        for (Integer id : allocation.keySet()) {
+            System.out.print(id + " -> " + max.get(id));
+            System.out.print("\t\t" + allocation.get(id));
+            System.out.println("\t\t" + max.get(id).sub(allocation.get(id)));
+        }
+
+    }
 }

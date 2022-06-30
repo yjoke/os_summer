@@ -56,7 +56,7 @@ public class TestBK {
         // 进程的最大资源需求
         Vector[] max = new Vector[] {
                 new Vector(7, 5, 3),
-                new Vector(3, 3, 2),
+                new Vector(3, 2, 2),
                 new Vector(9, 0, 2),
                 new Vector(2, 2, 2),
                 new Vector(4, 3, 3),
@@ -89,11 +89,9 @@ public class TestBK {
 
         // 进程 4 请求 3 3 0
         System.out.println(processes.get(4).apply(bank, new Vector(3, 3, 0)));
-        System.out.println(bank);
 
         // 进程 0 请求 0 2 0
         System.out.println(processes.get(0).apply(bank, new Vector(0, 2, 0)));
-        System.out.println(bank);
 
         // 进程 0 请求 0 1 0
         System.out.println(processes.get(0).apply(bank, new Vector(0, 1, 0)));
